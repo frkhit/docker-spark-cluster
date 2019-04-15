@@ -1,4 +1,4 @@
-FROM spark-base:2.3.1
+FROM frkhit/docker-spark-cluster-base:latest
 
 COPY start-worker.sh /
 
