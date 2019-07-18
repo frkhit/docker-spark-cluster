@@ -1,6 +1,3 @@
 #!/bin/bash
-SPARK_APPLICATION_JAR_LOCATION="/opt/spark-apps/crimes-app.jar"
-SPARK_APPLICATION_MAIN_CLASS="org.mvb.applications.CrimesApp"
-SPARK_SUBMIT_ARGS="--conf spark.executor.extraJavaOptions='-Dconfig-path=/opt/spark-apps/dev/config.conf'"
 
-docker run --network docker-spark-cluster_spark-network -v `pwd`/data/spark-apps:/opt/spark-apps --env SPARK_APPLICATION_JAR_LOCATION=$SPARK_APPLICATION_JAR_LOCATION --env SPARK_APPLICATION_MAIN_CLASS=$SPARK_APPLICATION_MAIN_CLASS frkhit/docker-spark-cluster-submit:latest
+docker run --rm --network docker-spark-cluster_spark-network -v `pwd`/data/spark-apps:/opt/spark-apps --env PYSPARK_PYTHON=python3 frkhit/docker-spark-cluster-submit:latest /spark/bin/spark-submit /opt/spark-apps/test.py
