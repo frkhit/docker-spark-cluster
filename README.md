@@ -1,5 +1,18 @@
 # Spark Cluster with Docker & docker-compose
 
+# Quick Start
+
+```
+# start cluster
+docker-compose down && docker-compose up -d
+
+# run a python task: ./data/spark-apps/test.py
+./crimes-app.sh
+
+# view docker-cluster in browser: http://localhost:8080
+
+```
+
 # General
 
 A simple spark standalone cluster for your testing environment purposses. A *docker-compose up* away from you solution for your spark development environment.

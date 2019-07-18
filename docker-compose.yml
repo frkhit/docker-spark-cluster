@@ -27,7 +27,6 @@ services:
     env_file: ./env/spark-worker.sh
     environment:
       - "SPARK_LOCAL_IP=spark-worker-1"
-      - "PYSPARK_PYTHON=python3"
     networks: 
       spark-network:
         ipv4_address: 10.5.0.3
@@ -45,7 +44,6 @@ services:
     env_file: ./env/spark-worker.sh
     environment:
       - "SPARK_LOCAL_IP=spark-worker-2"
-      - "PYSPARK_PYTHON=python3"
     networks: 
       spark-network:
         ipv4_address: 10.5.0.4
@@ -63,7 +61,6 @@ services:
     env_file: ./env/spark-worker.sh
     environment:
       - "SPARK_LOCAL_IP=spark-worker-3"
-      - "PYSPARK_PYTHON=python3"
     networks: 
       spark-network:
         ipv4_address: 10.5.0.5
