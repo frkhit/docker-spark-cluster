@@ -13,6 +13,10 @@ sc = SparkContext(
 )
 lines = sc.textFile("/spark/README.md")
 print("count of text is {}".format(lines.count()))
+
 result = lines.flatMap(lambda x: x.split(" ")).countByValue()
-for key, value in result.items():
-    print("%s %i" % (key, value))
+word_count_pair_list = [(key, value) for key, value in result.items()]
+sorted_word_count_pair_list = sorted(word_count_pair_list, key=lambda x: x[1], reverse=True)
+for (word, count) in sorted_word_count_pair_list:
+    print("{}\t{}".format(word, count))
+
